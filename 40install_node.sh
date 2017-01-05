@@ -70,6 +70,9 @@ else
 fi
 
 echo "Installing gulp-cli and node-gyp..."
-cd /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/ && /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/npm install -g gulp-cli node-gyp
+cd /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/ && /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/npm install -g gulp-cli node-gyp 2>/var/log/install_gulp.log
 
+if [ ! -L /usr/bin/gulp ]; then
+ln -s /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/gulp /usr/bin/gulp
+fi
 
