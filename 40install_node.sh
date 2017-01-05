@@ -69,3 +69,7 @@ else
   echo "Skipping NPM -g version update. To update, please uncomment 40install_node.sh:12"
 fi
 
+echo "Installing gulp-cli and node-gyp..."
+cd /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/ && /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/npm install -g gulp-cli node-gyp
+
+
