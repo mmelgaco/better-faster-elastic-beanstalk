@@ -60,14 +60,14 @@ if [ ! -L /usr/bin/npm ]; then
 ln -s /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/npm /usr/bin/npm
 fi
 
-echo "checking npm..."
-if [ ! -f "/opt/elasticbeanstalk/node-install/npm_updated" ]; then
-cd /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/ && /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/npm update npm -g
-touch /opt/elasticbeanstalk/node-install/npm_updated
-echo "YAY! Updated global NPM version to `npm -v`"
-else
-  echo "Skipping NPM -g version update. To update, please uncomment 40install_node.sh:12"
-fi
+#echo "checking npm..."
+#if [ ! -f "/opt/elasticbeanstalk/node-install/npm_updated" ]; then
+#cd /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/ && /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/npm update npm -g
+#touch /opt/elasticbeanstalk/node-install/npm_updated
+#echo "YAY! Updated global NPM version to `npm -v`"
+#else
+#  echo "Skipping NPM -g version update. To update, please uncomment 40install_node.sh:12"
+#fi
 
 echo "Installing gulp-cli and node-gyp..."
 cd /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/ && /opt/elasticbeanstalk/node-install/node-v$NODE_VER-linux-$ARCH/bin/npm install -g gulp-cli node-gyp 2>/var/log/install_gulp.log
